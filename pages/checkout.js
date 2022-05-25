@@ -33,14 +33,14 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
 }
 
 const sendingData = async (finalMap) => {
-  const createEventAttendeeResp = await axios.post(
-    '/api/sendTransaction',
-    finalMap
-  )
+  const createEventAttendeeResp = await axios.post('/api/sendTransaction', {
+    data: finalMap,
+  })
 }
 export default function Checkout() {
   const [error, setError] = useState()
   const [txs, setTxs] = useState([])
+  const [count, setCount] = useState(1)
   const { purchased, setPurchased } = useContext(AppContext)
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -54,11 +54,12 @@ export default function Checkout() {
     })
   }
 
-  if (txs.length > 0) {
+  if (txs.length > 0 && count != 0) {
     purchased.map((item) => {
       item['transactionID'] = txs[0]?.hash
     })
     sendingData(purchased)
+    setCount(count - 1)
   }
   return (
     <form className="m-4" onSubmit={handleSubmit}>
