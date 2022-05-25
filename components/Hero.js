@@ -1,4 +1,4 @@
-import React from 'react'
+import router from 'next/router'
 
 const style = {
   wrapper: `relative`,
@@ -17,6 +17,9 @@ const style = {
   infoIcon: `flex justify-end items-center flex-1 text-[#8a939b] text-3xl font-bold`,
 }
 
+const goToCollection = () => {
+  router.push('/collections/0x66a576A977b7Bccf510630E0aA5e450EC11361Fa')
+}
 const Hero = () => {
   return (
     <div className={style.wrapper}>
@@ -30,7 +33,9 @@ const Hero = () => {
               OpenSea is the world&apos;s first and largest NFT marketplace
             </div>
             <div className={style.ctaContainer}>
-              <button className={style.accentedButton}>Explore</button>
+              <button className={style.accentedButton} onClick={goToCollection}>
+                Explore
+              </button>
               <button className={style.button}>Create</button>
             </div>
           </div>

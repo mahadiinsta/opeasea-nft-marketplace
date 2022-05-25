@@ -1,6 +1,6 @@
 import { useWeb3 } from '@3rdweb/hooks'
 import { useEffect } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import { client } from '../lib/sanityClient'
@@ -45,7 +45,11 @@ export default function Home() {
 
   return (
     <div className={style.wrapper}>
-      <Toaster position="top-center" reverseOrder={false} />
+      <>
+        <Header />
+        <Hero />
+      </>
+      {/* <Toaster position="top-center" reverseOrder={false} />
       {address ? (
         <>
           <Header />
@@ -70,7 +74,7 @@ export default function Home() {
             <br /> able to run this app.
           </div>
         </div>
-      )}
+      )} */}
     </div>
   )
 }

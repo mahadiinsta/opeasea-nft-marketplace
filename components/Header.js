@@ -47,8 +47,10 @@ const Header = () => {
         <Link href="/purchases">
           <div className={style.headerItem}> My Purchases </div>
         </Link>
+        <Link href="https://thirdweb.com/dashboard">
+          <div className={style.headerItem}> Create </div>
+        </Link>
         <div className={style.headerItem}> Resources </div>
-        <div className={style.headerItem}> Create </div>
         <div className={style.headerIcon}>
           <CgProfile />
         </div>
