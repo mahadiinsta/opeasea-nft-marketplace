@@ -1,6 +1,7 @@
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
 import { useState } from 'react'
 import AppContext from '../components/AppContext'
+import Footer from '../components/Footer'
 import '../styles/globals.css'
 
 /**
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }) {
     >
       <AppContext.Provider value={{ purchased, setPurchased }}>
         <Component {...pageProps} />
+        <Footer />
       </AppContext.Provider>
     </ThirdwebWeb3Provider>
   )
